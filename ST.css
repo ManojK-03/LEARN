@@ -1,0 +1,402 @@
+
+/* =========================================
+   YELLOW – ACHIEVEMENT THEME
+   Premium Microsoft Learn Community
+========================================= */
+
+:root {
+  --bg: #080B14;
+  --bg-secondary: #111827;
+
+  /* Golden Yellow Palette */
+  --yellow-primary: #FACC15;
+  --yellow-light: #FDE68A;
+  --yellow-bright: #EAB308;
+  --yellow-dark: #A16207;
+  --yellow-muted: #854D0E;
+
+  /* Accent Colours */
+  --gold-gradient: linear-gradient(
+    135deg,
+    #FDE047 0%,
+    #EAB308 50%,
+    #CA8A04 100%
+  );
+
+  --gold-glow: rgba(250, 204, 21, 0.25);
+
+  /* Text */
+  --text-primary: #F9FAFB;
+  --text-secondary: #A1A1AA;
+
+  /* Glass */
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-border: rgba(250, 204, 21, 0.18);
+
+  --radius: 18px;
+  --transition: 0.3s ease;
+}
+
+/* GLOBAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* GOLDEN BACKGROUND */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(250, 204, 21, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(234, 179, 8, 0.08),
+      transparent 35%
+    );
+}
+
+/* HEADINGS */
+
+h1, h2, h3 {
+  letter-spacing: -0.04em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 850;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.highlight {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* NAVIGATION */
+
+.site-header {
+  background: rgba(8, 11, 20, 0.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--yellow-primary);
+}
+
+/* PRIMARY BUTTON */
+
+.btn-primary {
+  background: var(--gold-gradient);
+  color: #17120A;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 8px 25px var(--gold-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(250, 204, 21, 0.4);
+}
+
+/* SECONDARY BUTTON */
+
+.btn-secondary {
+  background: transparent;
+  color: var(--yellow-light);
+  border: 1px solid var(--yellow-dark);
+  padding: 13px 26px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background: rgba(250, 204, 21, 0.1);
+  border-color: var(--yellow-primary);
+}
+
+/* GLASS CARDS */
+
+.card,
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius);
+  padding: 26px;
+  transition: var(--transition);
+}
+
+.card:hover,
+.glass-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--yellow-primary);
+  box-shadow: 0 18px 45px rgba(234, 179, 8, 0.12);
+}
+
+/* ACHIEVEMENT CARDS */
+
+.achievement-card {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    145deg,
+    rgba(250, 204, 21, 0.12),
+    rgba(255, 255, 255, 0.025)
+  );
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 28px;
+}
+
+.achievement-card::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  right: -50px;
+  top: -50px;
+  background: var(--yellow-primary);
+  filter: blur(90px);
+  opacity: 0.18;
+}
+
+/* ICONS */
+
+.icon-box {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  color: var(--yellow-primary);
+  background: rgba(250, 204, 21, 0.12);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+
+.icon-box:hover {
+  background: var(--yellow-primary);
+  color: #111827;
+  transform: rotate(-5deg) scale(1.08);
+}
+
+/* CERTIFICATION BADGE */
+
+.certification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(250, 204, 21, 0.12);
+  border: 1px solid var(--yellow-bright);
+  color: var(--yellow-light);
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* PROGRESS BAR */
+
+.progress-track {
+  height: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: var(--progress, 70%);
+  background: var(--gold-gradient);
+  border-radius: inherit;
+  box-shadow: 0 0 15px var(--gold-glow);
+  transition: width 0.8s ease;
+}
+
+/* ROADMAP */
+
+.roadmap-item {
+  border-left: 2px solid var(--yellow-bright);
+  padding: 20px 25px;
+  position: relative;
+}
+
+.roadmap-item::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  background: var(--yellow-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+
+/* SEAT AVAILABILITY */
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 9px;
+}
+
+.seat {
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.seat.available {
+  background: rgba(250, 204, 21, 0.15);
+  border-color: var(--yellow-primary);
+}
+
+.seat.occupied {
+  background: var(--yellow-primary);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+/* INPUTS */
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  outline: none;
+  transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--yellow-primary);
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.12);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #71717A;
+}
+
+/* ANIMATIONS */
+
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--gold-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.35);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-gold {
+  animation: goldPulse 3s infinite ease-in-out;
+}
+
+.animate-up {
+  animation: fadeUp 0.7s ease both;
+}
+
+/* FOOTER */
+
+.site-footer {
+  background: #070A12;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  padding: 50px 20px;
+}
+
+.site-footer a:hover {
+  color: var(--yellow-primary);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  .seat-grid {
+    gap: 6px;
+  }
+
+  .card,
+  .glass-card {
+    padding: 20px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
